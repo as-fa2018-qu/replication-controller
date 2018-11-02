@@ -1,0 +1,24 @@
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: jupyterHub
+spec:
+  replicas: 1
+  selector:
+    app: jupyterHub
+  template:
+    metadata:
+      labels:
+        app: jupyterHub
+      name: jupyterHub
+    spec:
+      containers:
+        - 
+          image: "jupyterhub/jupyterhub"
+          imagePullPolicy: Always
+          name: jupyterHub
+          ports:
+            - 
+              containerPort: 8000
+              hostPort: 80
